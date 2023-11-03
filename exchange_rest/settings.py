@@ -25,7 +25,14 @@ SECRET_KEY = 'django-insecure-wk^ate(o(n@h3#efb_lyl17-%pu1o88g^2=9!v-dr!at!-1xau
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["147.182.137.98"]
+ALLOWED_HOSTS = [
+    "147.182.137.98",
+    "127.0.0.1",
+    "localhost",
+    "http://147.182.137.98",
+    "http://127.0.0.1",
+    "http://localhost",
+    ]
 
 # Application definition
 
@@ -134,7 +141,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',    
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         ]
 }
 AUTH_USER_MODEL = 'account.User'
@@ -188,8 +195,20 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:5500', 
+    # '127.0.0.1:5500'
     'http://localhost:5500',
+    # 'localhost:5500',
 ] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
 CORS_ALLOWED_ORIGIN_REGEXES = [
+    'http://127.0.0.1:5500', 
+    # '127.0.0.1:5500'
     'http://localhost:5500',
+    # 'localhost:5500',
 ]
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:5500', 
+    # '127.0.0.1:5500'
+    'http://localhost:5500',
+    # 'localhost:5500',
+    ]
