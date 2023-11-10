@@ -1,19 +1,10 @@
-FROM python:3.9-alpine3.13
-LABEL maintainer="londonappdeveloper.com"
-
+# Указывает Docker использовать официальный образ python 3 с dockerhub в качестве базового образа
+FROM python:3
+# Устанавливает переменную окружения, которая гарантирует, что вывод из python будет отправлен прямо в терминал без предварительной буферизации
 ENV PYTHONUNBUFFERED 1
-
-COPY ./requirements.txt /requirements.txt
-COPY ./ /app
-
+# Устанавливает рабочий каталог контейнера — "app"
 WORKDIR /app
-EXPOSE 8000
-
-RUN python -m venv /py && \
-    /py/bin/pip install --upgrade pip && \
-    /py/bin/pip install -r /requirements.txt && \
-    adduser --disabled-password --no-create-home app
-
-ENV PATH="/py/bin:$PATH"
-
-USER app
+# Копирует все файлы из нашего локального проекта в контейнер
+COPY . .
+# Запускает команду pip install для всех библиотек, перечисленных в requirements.txt
+RUN pip install -r requirements.txt
