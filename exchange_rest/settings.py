@@ -153,15 +153,15 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     PATH_TO_YOUR_STATIC_FOLDER,
 ]
-DJOSER = {
-    "USER_ID_FIELD": "username",
-    "LOGIN_FIELD": "email",
-    "SEND_ACTIVATION_EMAIL": True,
-    "ACTIVATION_URL": "activate/{uid}/{token}",
-    "PASSWORD_RESET_CONFIRM_URL": "reset_password/{uid}/{token}", # the reset link 
-    'SERIALIZERS': {
-    },
-}
+# DJOSER = {
+#     "USER_ID_FIELD": "username",
+#     "LOGIN_FIELD": "email",
+#     "SEND_ACTIVATION_EMAIL": True,
+#     "ACTIVATION_URL": "activate/{uid}/{token}",
+#     "PASSWORD_RESET_CONFIRM_URL": "reset_password/{uid}/{token}", # the reset link 
+#     'SERIALIZERS': {
+#     },
+# }
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
